@@ -2,7 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London%2CUK?unitGroup=us&key=SHNSADGU6CGTV5X3XSAEVSMJE`;
+  const [data, setData] = useState({});
+  const [location, setLocation] = useState("");
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=d51d57fa402f94480855879ae2979e5b`;
 
   return (
     <div className="app">
@@ -20,12 +23,17 @@ function App() {
         </div>
         <div className="bottom">
           <div className="feels">
-            <p>65ºF</p>
+            <p className="bold">65ºF</p>
+            <p>Feels like</p>
           </div>
           <div className="humidity">
-            <p>20%</p>
+            <p className="bold">20%</p>
+            <p>Humidity</p>
           </div>
-          <div className="wind">12 MPH</div>
+          <div className="wind">
+            <p className="bold">12 MPH</p>
+            <p>Wind Speed</p>
+          </div>
         </div>
       </div>
     </div>
